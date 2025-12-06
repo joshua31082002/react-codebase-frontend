@@ -1,0 +1,7 @@
+.home-sider {
+  border-right: 1px solid var(--color-border-container-100);
+
+  :global(.ant-layout-sider-trigger) {
+    border-right: 1px solid var(--color-bg-container-800);
+  }
+}

@@ -1,0 +1,26 @@
+//////// TODO: After setting up design system, configure input field's autofill styling:- /////////
+/* Standard autofill styles for webkit browsers (Chrome, Safari, newer Edge) */
+// input:-webkit-autofill,
+// input:-webkit-autofill:hover,
+// input:-webkit-autofill:focus,
+// input:-webkit-autofill:active {
+//   /* Override default yellow background */
+//   -webkit-box-shadow: 0 0 0 30px rgba($black, 0) inset;
+//   /* Customize text color */
+//   -webkit-text-fill-color: $white;
+// }
+
+// /* Firefox autofill styles */
+// input:-moz-autofill,
+// /* Modern browsers using the :autofill pseudo-class */
+// input:autofill {
+//   background-color: $primary-black;
+//   color: $white;
+// }
+
+// /* Customizing with specific colors and transitions */
+// input:-webkit-autofill {
+//   transition: background-color 1000s ease-in-out 0s;
+//   -webkit-text-fill-color: $white;
+// }
+//////////////////////////////////////////////////////////////////////////////////////////////
