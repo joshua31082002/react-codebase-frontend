@@ -5,13 +5,9 @@ import styles from './HomePage.module.scss';
 import { env } from '@/config/env';
 import clsx from 'clsx';
 import Button from '@/shared/components/ui/Button';
-import MaterialIcon from '@/shared/components/MaterialIcon';
-import { useLogout } from '@/modules/auth/hooks/useLogout';
 
 const HomePage = () => {
   const [count, setCount] = useState(0);
-
-  const { logout } = useLogout();
 
   return (
     <div className={styles['home-page']}>
@@ -35,14 +31,6 @@ const HomePage = () => {
         </p>
       </div>
       <p className={styles['read-the-docs']}>Click on the Vite and React logos to learn more</p>
-
-      <Button
-        icon={<MaterialIcon>logout</MaterialIcon>}
-        shape="circle"
-        size="large"
-        className={styles['logout-btn']}
-        onClick={logout}
-      />
     </div>
   );
 };

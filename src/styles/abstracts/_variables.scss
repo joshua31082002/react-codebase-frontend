@@ -32,7 +32,9 @@ $bold-font: 700;
 
   // light theme :-
   --color-primary: #{$purple-600}; // Brand colors
-  --color-primary-hover: #{$purple-600}; // Brand colors
+  --color-primary-hover: #{$purple-500}; // Brand colors  
+  --color-primary-200: #{$purple-200};
+  --color-primary-300: #{$purple-300};
 
   --color-bg-layout: #{$lotion}; // Background colors
   --color-bg-container-100: #{$purple-100};

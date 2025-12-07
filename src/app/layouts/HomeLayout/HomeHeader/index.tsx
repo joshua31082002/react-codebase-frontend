@@ -1,10 +1,17 @@
 import Header from '@/shared/components/ui/Layout/Header';
 import styles from './HomeHeader.module.scss';
+import ReactLogo from '@/assets/react.svg?react';
+import UserAvatar from '@/app/layouts/HomeLayout/HomeHeader/UserAvatar';
 
 interface HomeHeaderProps {}
 
 const HomeHeader = ({}: HomeHeaderProps) => {
-  return <Header className={styles['home-header']}>React</Header>;
+  return (
+    <Header className={styles['home-header']}>
+      <ReactLogo />
+      <UserAvatar />
+    </Header>
+  );
 };
 
 export default HomeHeader;

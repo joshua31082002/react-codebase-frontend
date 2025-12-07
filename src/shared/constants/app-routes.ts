@@ -3,4 +3,7 @@ export const APP_ROUTES = {
   AUTH: {
     LOGIN: '/auth/login',
   },
+  PRODUCTS: {
+    INDEX: '/products',
+  },
 } as const;
