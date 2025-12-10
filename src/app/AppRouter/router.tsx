@@ -2,6 +2,8 @@ import { redirectIfAuthenticatedLoader } from '@/app/AppRouter/loaders/redirect-
 import { requireAuthLoader } from '@/app/AppRouter/loaders/require-auth.loader';
 import HomeLayout from '@/app/layouts/HomeLayout';
 import RootLayout from '@/app/layouts/RootLayout';
+import ProductsPage from '@/pages/ProductsPage';
+import { APP_ROUTES } from '@/shared/constants/app-routes';
 import type { QueryClient } from '@tanstack/react-query';
 import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router';
@@ -19,7 +21,10 @@ export const createRouter = (queryClient: QueryClient) =>
           path: '/',
           loader: requireAuthLoader(queryClient),
           element: <HomeLayout />,
-          children: [{ index: true, element: <HomePage /> }],
+          children: [
+            { index: true, element: <HomePage /> },
+            { path: APP_ROUTES.PRODUCTS.INDEX, element: <ProductsPage /> },
+          ],
         },
         {
           path: 'auth',

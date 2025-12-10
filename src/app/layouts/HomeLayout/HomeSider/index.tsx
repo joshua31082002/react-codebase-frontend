@@ -2,8 +2,7 @@ import Sider from '@/shared/components/ui/Layout/Sider';
 import styles from './HomeSider.module.scss';
 import Menu from '@/shared/components/ui/Menu';
 import MaterialIcon from '@/shared/components/MaterialIcon';
-import { HOME_SIDER_KEY } from '@/shared/constants/home-sider-key';
-import { useMatch } from 'react-router';
+import { Link, useMatch } from 'react-router';
 import { APP_ROUTES } from '@/shared/constants/app-routes';
 
 interface HomeSiderProps {}
@@ -13,10 +12,10 @@ const HomeSider = ({}: HomeSiderProps) => {
   const productsListing = useMatch(APP_ROUTES.PRODUCTS.INDEX);
 
   const activeMenuItem = productsListing
-    ? HOME_SIDER_KEY.PRODUCTS
+    ? APP_ROUTES.PRODUCTS.INDEX
     : homeMatch
-      ? HOME_SIDER_KEY.HOME
-      : HOME_SIDER_KEY.HOME;
+      ? APP_ROUTES.HOME
+      : APP_ROUTES.HOME;
 
   return (
     <Sider collapsible className={styles['home-sider']}>
@@ -25,15 +24,23 @@ const HomeSider = ({}: HomeSiderProps) => {
         selectedKeys={[activeMenuItem]}
         items={[
           {
-            key: HOME_SIDER_KEY.HOME,
-            icon: <MaterialIcon className={styles['icon']}>home</MaterialIcon>,
+            key: APP_ROUTES.HOME,
+            icon: (
+              <Link to={APP_ROUTES.HOME}>
+                <MaterialIcon className={styles['icon']}>home</MaterialIcon>
+              </Link>
+            ),
             label: 'Home',
           },
           {
-            key: HOME_SIDER_KEY.PRODUCTS,
-            icon: <MaterialIcon className={styles['icon']}>storefront</MaterialIcon>,
+            key: APP_ROUTES.PRODUCTS.INDEX,
+            icon: (
+              <Link to={APP_ROUTES.PRODUCTS.INDEX}>
+                <MaterialIcon className={styles['icon']}>storefront</MaterialIcon>
+              </Link>
+            ),
             label: 'Products',
-          }
+          },
         ]}
       />
     </Sider>
