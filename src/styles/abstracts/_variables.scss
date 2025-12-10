@@ -15,6 +15,7 @@ $purple-500: #7c56cf;
 $purple-600: #6028d8;
 $purple-800: #3c1a85;
 $purple-900: #1c0b40;
+$dark-charcoal: #333333;
 
 $light-font: 300;
 $regular-font: 400;
@@ -39,6 +40,7 @@ $bold-font: 700;
   --color-bg-layout: #{$lotion}; // Background colors
   --color-bg-container-100: #{$purple-100};
   --color-bg-container-800: #{$purple-800};
+  --color-bg-elevated: #{$white};
 
   --color-text-primary: #{$black}; // Text colors
 
@@ -59,6 +61,7 @@ $bold-font: 700;
   --color-bg-layout: #{$chinese-black}; // Background colors
   --color-bg-container-100: #{$raisin-black};
   --color-bg-container-800: #{$outer-space};
+  --color-bg-elevated: #{$dark-charcoal};
 
   --color-text-primary: #{$white}; // Text colors
 

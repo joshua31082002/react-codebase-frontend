@@ -1,3 +1,8 @@
 .ant-segmented {
+  color: var(--color-text-primary);
   background: var(--color-neutral-300);
+
+  .ant-segmented-item:not(.ant-segmented-item-selected):not(.ant-segmented-item-disabled):hover {
+    color: color-mix(in srgb, var(--color-text-primary) 70%, transparent);
+  }
 }

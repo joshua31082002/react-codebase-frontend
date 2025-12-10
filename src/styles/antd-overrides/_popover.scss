@@ -1,0 +1,11 @@
+.ant-popover {
+  color: var(--color-text-primary);
+  .ant-popover-inner {
+    background-color: var(--color-bg-elevated);
+  }
+  
+  
+  .ant-popover-inner-content {
+    color: inherit;
+  }
+}
