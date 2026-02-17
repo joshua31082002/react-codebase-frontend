@@ -1,4 +1,6 @@
 .home-content {
+  width: 100%;
+  min-height: calc(100vh - $home-navbar-height);
   margin-left: $home-sider-width;
   transition: margin-left 300ms;
   &--expanded {
