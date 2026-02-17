@@ -1,7 +1,7 @@
 import Header from '@/shared/components/ui/Layout/Header';
 import styles from './HomeHeader.module.scss';
 import ReactLogo from '@/assets/react.svg?react';
-import UserAvatar from '@/modules/home/components/HomeHeader/UserAvatar';
+import UserAvatar from '@/modules/home/components/UserAvatar';
 
 interface HomeHeaderProps {}
 

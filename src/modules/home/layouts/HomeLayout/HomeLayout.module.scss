@@ -1,0 +1,7 @@
+.home-content {
+  margin-left: $home-sider-width;
+  transition: margin-left 300ms;
+  &--expanded {
+    margin-left: $home-sider-width--collapsed;
+  }
+}

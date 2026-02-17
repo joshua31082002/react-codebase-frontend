@@ -6,7 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { loginFormSchema } from '@/modules/auth/components/LoginForm/login-form-schema';
 import { useLogin } from '@/modules/auth/hooks/useLogin';
 import { App } from 'antd';
-import type { LoginFormValues } from '@/modules/auth/types/login-form-values';
+import type { LoginFormValues } from '@/modules/auth/types/login-form-values.types';
 import { useForm } from 'react-hook-form';
 import { AxiosError } from 'axios';
 import { useNavigate } from 'react-router';

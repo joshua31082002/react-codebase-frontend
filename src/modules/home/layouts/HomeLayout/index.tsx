@@ -1,15 +1,20 @@
 import HomeHeader from '@/modules/home/components/HomeHeader';
 import HomeSider from '@/modules/home/components/HomeSider';
 import Layout from '@/shared/components/ui/Layout';
+import { useState } from 'react';
 import { Outlet } from 'react-router';
+import styles from './HomeLayout.module.scss';
+import clsx from 'clsx';
 
 const HomeLayout = () => {
+  const [siderCollapsed, setSiderCollapsed] = useState(true);
+
   return (
-    <Layout className="h-100">
+    <Layout>
       <HomeHeader />
       <Layout hasSider>
-        <HomeSider />
-        <div className='w-100'>
+        <HomeSider collapsed={siderCollapsed} onCollapse={setSiderCollapsed} />
+        <div className={clsx(styles['home-content'], siderCollapsed && styles['home-content--expanded'])}>
           <Outlet />
         </div>
       </Layout>

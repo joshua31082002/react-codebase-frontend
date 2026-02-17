@@ -4,10 +4,14 @@ import Menu from '@/shared/components/ui/Menu';
 import MaterialIcon from '@/shared/components/MaterialIcon';
 import { Link, useMatch } from 'react-router';
 import { APP_ROUTES } from '@/shared/constants/app-routes';
+import clsx from 'clsx';
 
-interface HomeSiderProps {}
+interface HomeSiderProps {
+  collapsed?: boolean;
+  onCollapse?: (collapsed: boolean) => void;
+}
 
-const HomeSider = ({}: HomeSiderProps) => {
+const HomeSider = ({ collapsed, onCollapse }: HomeSiderProps) => {
   const homeMatch = useMatch(APP_ROUTES.HOME);
   const productsListing = useMatch(APP_ROUTES.PRODUCTS.INDEX);
 
@@ -18,7 +22,11 @@ const HomeSider = ({}: HomeSiderProps) => {
       : APP_ROUTES.HOME;
 
   return (
-    <Sider collapsible className={styles['home-sider']}>
+    <Sider
+      collapsible
+      className={clsx(styles['home-sider'], collapsed && styles['home-sider--collapsed'])}
+      collapsed={collapsed}
+      onCollapse={onCollapse}>
       <Menu
         selectable
         selectedKeys={[activeMenuItem]}

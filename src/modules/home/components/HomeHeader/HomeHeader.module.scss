@@ -5,4 +5,10 @@
   align-items: center;
   gap: 1rem;
   justify-content: space-between;
+  height: $home-navbar-height;
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
 }
