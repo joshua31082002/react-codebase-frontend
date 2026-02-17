@@ -1,6 +1,6 @@
 import { redirectIfAuthenticatedLoader } from '@/app/AppRouter/loaders/redirect-if-authenticated.loader';
 import { requireAuthLoader } from '@/app/AppRouter/loaders/require-auth.loader';
-import HomeLayout from '@/app/layouts/HomeLayout';
+import HomeLayout from '@/modules/home/layouts/HomeLayout';
 import RootLayout from '@/app/layouts/RootLayout';
 import ProductsPage from '@/pages/ProductsPage';
 import { APP_ROUTES } from '@/shared/constants/app-routes';

@@ -1,5 +1,5 @@
-import HomeHeader from '@/app/layouts/HomeLayout/HomeHeader';
-import HomeSider from '@/app/layouts/HomeLayout/HomeSider';
+import HomeHeader from '@/modules/home/components/HomeHeader';
+import HomeSider from '@/modules/home/components/HomeSider';
 import Layout from '@/shared/components/ui/Layout';
 import { Outlet } from 'react-router';
 
