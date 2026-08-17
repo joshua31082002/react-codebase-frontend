@@ -1,0 +1,32 @@
+{
+  "name": "sandbox",
+  "version": "1.0.0",
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "node --test",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsx watch src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://x-access-token: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@github.com/joshua31082002/react-codebase-frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshua31082002/react-codebase-frontend/issues"
+  },
+  "homepage": "https://github.com/joshua31082002/react-codebase-frontend#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.2.0",
+    "tsx": "^4.23.12",
+    "typescript": "^5.9.3"
+  }
+}
