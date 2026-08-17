@@ -1,0 +1,9 @@
+services:
+  api:
+    build:
+      context: /home/sandbox
+      dockerfile: Dockerfile
+    environment:
+      PORT: 3000
+    expose:
+      - "3000"
