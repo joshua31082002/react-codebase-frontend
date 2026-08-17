@@ -1,0 +1,11 @@
+services:
+  api:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - /home/sandbox:/app
+    command: sh -c "npm ci && npm run dev"
+    environment:
+      PORT: "3000"
+    expose:
+      - "3000"
