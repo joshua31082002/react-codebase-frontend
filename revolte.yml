@@ -10,7 +10,7 @@ revolte:
     testSuite:
       command: npm run test
     automationTestSuite:
-      command: npm run test-1
+      command: npm run test
   workflow:
     developerWorkflow:
       enabled: true
