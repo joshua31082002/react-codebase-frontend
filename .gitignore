@@ -10,7 +10,6 @@ lerna-debug.log*
 node_modules
 /dist*
 dist-ssr
-*.local
 
 # Editor directories and files
 .vscode/*
@@ -19,11 +18,9 @@ dist-ssr
 .DS_Store
 *.suo
 *.ntvs*
-*.njsproj
+.njsproj
 *.sln
 *.sw?
 
-package-lock.json
-
-# .env files:-
-# .env*
+# Environment files
+*.local
