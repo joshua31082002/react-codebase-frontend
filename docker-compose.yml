@@ -1,0 +1,14 @@
+services:
+  web:
+    image: python:3.12-alpine
+    working_dir: /app
+    command: python -m http.server 4173 --bind 0.0.0.0
+    ports:
+      - "4173:4173"
+    volumes:
+      - .:/app:ro
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "--quiet", "http://127.0.0.1:4173/"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
