@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    command: npm run dev
+    environment:
+      PORT: 3000
+      NODE_ENV: development
+    ports:
+      - "4173:3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/health').then((response) => process.exit(response.ok ? 0 : 1)).catch(() => process.exit(1))"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
