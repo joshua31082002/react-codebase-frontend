@@ -1,0 +1,22 @@
+
+> app@0.1.0 build
+> next build
+
+▲ Next.js 16.3.1 (Turbopack)
+⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /home/sandbox/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /home/sandbox/app/package-lock.json
+
+✓ Running next.config.ts took 44ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 10.2s
+  Running TypeScript ...
+src/app/api/chat/route.ts(32,7): error TS2345: Argument of type 'TransformStream<string, Uint8Array<ArrayBufferLike>>' is not assignable to parameter of type 'ReadableWritablePair<ArrayBufferView<ArrayBufferLike> | undefined, string>'.
+  Types of property 'readable' are incompatible.
+    Type 'ReadableStream<Uint8Array<ArrayBufferLike>>' is missing the following properties from type 'ReadableStream<ArrayBufferView<ArrayBufferLike> | undefined>': values, [Symbol.asyncIterator]
+Failed to type check.
+

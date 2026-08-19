@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@ai-sdk/openai": "^4.0.43",
+    "@mastra/core": "^1.60.0",
+    "ai": "^7.0.68",
+    "zod": "^4.4.3"
+  }
+}
