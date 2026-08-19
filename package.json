@@ -1,0 +1,10 @@
+{
+  "name": "hello-world-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A basic Hello World website",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  }
+}
