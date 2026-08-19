@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A colorful two-player Snake and Ladder game" />
+    <title>Snake &amp; Ladder</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Classic board game</p>
+          <h1>Snake <span>&amp;</span> Ladder</h1>
+        </div>
+        <button class="button button-secondary" id="new-game" type="button">New game</button>
+      </header>
+
+      <section class="game-layout" aria-label="Snake and Ladder game">
+        <div class="board-card">
+          <div class="board-heading">
+            <div>
+              <p class="section-label">Race to the top</p>
+              <h2>First to 100 wins</h2>
+            </div>
+            <div class="turn-badge" id="turn-badge"><span class="turn-dot"></span><span id="turn-label">Player 1's turn</span></div>
+          </div>
+          <div class="board" id="board" aria-label="Game board from 1 to 100"></div>
+        </div>
+
+        <aside class="sidebar">
+          <section class="panel turn-panel">
+            <p class="section-label">Current turn</p>
+            <div class="player-display player-one" id="active-player">
+              <span class="player-token token-one">1</span>
+              <div>
+                <strong id="active-player-name">Player 1</strong>
+                <span id="active-player-position">At the start</span>
+              </div>
+            </div>
+            <div class="dice" id="dice" aria-live="polite">?</div>
+            <button class="button button-primary" id="roll-dice" type="button">Roll dice</button>
+            <p class="status-message" id="status-message">Roll the dice to begin.</p>
+          </section>
+
+          <section class="panel">
+            <p class="section-label">Players</p>
+            <div class="score-row active" id="player-one-score">
+              <span class="player-token token-one">1</span>
+              <div><strong>Player 1</strong><span>Position <b>0</b></span></div>
+            </div>
+            <div class="score-row" id="player-two-score">
+              <span class="player-token token-two">2</span>
+              <div><strong>Player 2</strong><span>Position <b>0</b></span></div>
+            </div>
+          </section>
+
+          <section class="panel rules-panel">
+            <p class="section-label">Board guide</p>
+            <div class="legend-item"><i class="legend-mark ladder-mark"></i><span>Ladders move you up</span></div>
+            <div class="legend-item"><i class="legend-mark snake-mark"></i><span>Snakes slide you down</span></div>
+            <p class="rule-note">You need an exact roll to land on 100.</p>
+          </section>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>
