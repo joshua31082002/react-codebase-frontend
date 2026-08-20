@@ -1,0 +1,11 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      NODE_ENV: production
+      PORT: 4173
+      HOSTNAME: 0.0.0.0
+    ports:
+      - "4173:4173"
