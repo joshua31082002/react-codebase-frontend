@@ -30,6 +30,7 @@ revolte:
             enableCdn: false
             variables:
               BASE_URL: /api/v1
+              ABCD: '#{efgh}'
     qa:
       codeReview: true
       testSuite: true
