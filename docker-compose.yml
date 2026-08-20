@@ -1,0 +1,9 @@
+services:
+  web:
+    build:
+      context: .
+    ports:
+      - "4173:4173"
+    environment:
+      RAILS_ENV: production
+      SECRET_KEY_BASE: preview-secret-key-base
