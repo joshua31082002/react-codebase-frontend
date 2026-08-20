@@ -30,6 +30,9 @@ revolte:
             enableCdn: false
             variables:
               BASE_URL: /api/v1
+              k1: v1
+              PORT: '8080'
+              JWT_TOKEN_SECRET_1: '#{jwt_key}'
     qa:
       codeReview: true
       testSuite: true
@@ -46,6 +49,9 @@ revolte:
             enableCdn: false
             variables:
               BASE_URL: /api/v1
+              k1: v1
+              PORT: '8080'
+              JWT_TOKEN_SECRET_1: '#{jwt_key}'
     staging:
       codeReview: true
       testSuite: true
@@ -62,6 +68,9 @@ revolte:
             enableCdn: false
             variables:
               BASE_URL: /api/v1
+              k1: v1
+              PORT: '8080'
+              JWT_TOKEN_SECRET_1: '#{jwt_key}'
     production:
       codeReview: true
       testSuite: true
@@ -78,3 +87,6 @@ revolte:
             enableCdn: false
             variables:
               BASE_URL: /api/v1
+              k1: v1
+              PORT: '8080'
+              JWT_TOKEN_SECRET_1: '#{jwt_key}'
