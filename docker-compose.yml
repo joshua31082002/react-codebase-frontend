@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      context: .
+    ports:
+      - "4173:3000"
+    environment:
+      NODE_ENV: production
+    restart: unless-stopped
