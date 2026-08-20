@@ -1,80 +1,60 @@
 revolte:
-  version: '1.0'
+  version: "1"
   project: FE-test-project
   appName: fe-test-app
-  config:
-    codeReview:
-      summarize: true
-      suggestFixes: true
-      commentStyle: Balanced
-    testSuite:
-      command: npm run test
-    automationTestSuite:
-      command: npm run test
-  workflow:
-    developerWorkflow:
-      enabled: true
   env:
     preview:
-      codeReview: true
-      testSuite: true
-      automationTestSuite: true
       services:
         rid_1:
-          type: WEB_APP
-          name: web-app_service
-          entryPoint: index.js
+          name: fe-test-app
+          type: WEB_SERVICE
+          specifications:
+            cpu: 2
+            memory: 2
+            storage: 30
           properties:
-            indexPage: index.html
-            errorPage: error.html
-            enableCdn: false
-            variables:
-              BASE_URL: /api/v1
+            health: /api/health
+            port: 8080
     qa:
-      codeReview: true
-      testSuite: true
-      automationTestSuite: true
-      branch: main
+      branch: qa
       services:
         rid_1:
-          type: WEB_APP
-          name: web-app_service
-          entryPoint: index.js
+          name: fe-test-app
+          type: WEB_SERVICE
+          specifications:
+            cpu: 2
+            memory: 2
+            storage: 30
           properties:
-            indexPage: index.html
-            errorPage: error.html
-            enableCdn: false
-            variables:
-              BASE_URL: /api/v1
+            health: /api/health
+            port: 8080
     staging:
-      codeReview: true
-      testSuite: true
-      automationTestSuite: true
-      branch: main
+      branch: staging
       services:
         rid_1:
-          type: WEB_APP
-          name: web-app_service
-          entryPoint: index.js
+          name: fe-test-app
+          type: WEB_SERVICE
+          specifications:
+            cpu: 2
+            memory: 2
+            storage: 30
           properties:
-            indexPage: index.html
-            errorPage: error.html
-            enableCdn: false
-            variables:
-              BASE_URL: /api/v1
+            health: /api/health
+            port: 8080
     production:
-      codeReview: true
-      testSuite: true
-      automationTestSuite: true
       branch: main
       services:
         rid_1:
-          type: WEB_APP
-          name: web-app_service
-          entryPoint: index.js
+          name: fe-test-app
+          type: WEB_SERVICE
+          specifications:
+            cpu: 2
+            memory: 2
+            storage: 50
+            autoScaling:
+              replica:
+                min: 1
+                max: 3
           properties:
-            indexPage: index.html
-            errorPage: error.html
-            enableCdn: false
-            variables:
-              BASE_URL: /api/v1
+            health: /api/health
+            port: 8080
