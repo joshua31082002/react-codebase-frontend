@@ -7,6 +7,7 @@ revolte:
       services:
         rid_1:
           name: fe-test-app
+          entryPoint: server.js
           type: WEB_SERVICE
           specifications:
             cpu: 2
@@ -20,6 +21,7 @@ revolte:
       services:
         rid_1:
           name: fe-test-app
+          entryPoint: server.js
           type: WEB_SERVICE
           specifications:
             cpu: 2
@@ -33,6 +35,7 @@ revolte:
       services:
         rid_1:
           name: fe-test-app
+          entryPoint: server.js
           type: WEB_SERVICE
           specifications:
             cpu: 2
@@ -46,6 +49,7 @@ revolte:
       services:
         rid_1:
           name: fe-test-app
+          entryPoint: server.js
           type: WEB_SERVICE
           specifications:
             cpu: 2
