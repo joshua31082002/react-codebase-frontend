@@ -1,0 +1,7 @@
+services:
+  app:
+    image: node:20-alpine
+    command: >-
+      node -e "require('http').createServer((req,res)=>{res.end('FE test app')}).listen(4173,'0.0.0.0')"
+    ports:
+      - "4173:4173"
