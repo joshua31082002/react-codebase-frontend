@@ -1,0 +1,89 @@
+--progress is a global compose flag, better use `docker compose --progress xx build ...
+ Image revolte-preview-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 482B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 180B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:22-alpine
+#3 DONE 0.2s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 64B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 2.61kB done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32
+#6 resolve docker.io/library/node:22-alpine@sha256:c610fcdfb1d5b4740dd70c284ed3cb16bb857e0f7166196e36a5501df7a3aa32 0.0s done
+#6 DONE 0.0s
+
+#7 [2/5] WORKDIR /app
+#7 CACHED
+
+#8 [3/5] COPY package*.json ./
+#8 CACHED
+
+#9 [4/5] RUN npm ci
+#9 CACHED
+
+#10 [5/5] COPY . .
+#10 DONE 79.8s
+
+#11 exporting to docker image format
+#11 exporting layers
+#11 exporting layers 58.0s done
+#11 exporting manifest sha256:b2e13c1d862572d91398c5b47df783650c28c312412d17c38c2e9914d1fc4ab7 0.0s done
+#11 exporting config sha256:bcfc8fd962dee1c0f99b97e8f0f70813fa4cce30978c0d8d875cda14ad20d43d 0.0s done
+#11 sending tarball
+#11 ...
+
+#12 importing to docker
+#12 loading layer 34884abbe928 65.54kB / 3.85MB
+#12 loading layer 5654eeaf0464 557.06kB / 52.63MB
+#12 loading layer 5654eeaf0464 49.58MB / 52.63MB 2.0s
+#12 loading layer fe2c6446e3d9 32.77kB / 1.26MB
+#12 loading layer baf2266664ba 445B / 445B
+#12 loading layer 09f4299a964a 93B / 93B
+#12 loading layer 3ed371307453 32.77kB / 51.15kB
+#12 loading layer 6c654ac02e0a 557.06kB / 336.37MB
+#12 loading layer 6c654ac02e0a 36.21MB / 336.37MB 2.0s
+#12 loading layer 6c654ac02e0a 90.24MB / 336.37MB 4.1s
+#12 loading layer 6c654ac02e0a 108.07MB / 336.37MB 6.5s
+#12 loading layer 6c654ac02e0a 127.01MB / 336.37MB 10.7s
+#12 loading layer 6c654ac02e0a 155.42MB / 336.37MB 12.7s
+#12 loading layer 6c654ac02e0a 335.90MB / 336.37MB 19.2s
+#12 loading layer 24e86153a43f 4.06kB / 4.06kB
+#12 loading layer 24e86153a43f 4.06kB / 4.06kB 28.7s
+#12 loading layer 34884abbe928 3.85MB / 3.85MB 57.0s done
+#12 loading layer 5654eeaf0464 52.63MB / 52.63MB 56.7s done
+#12 loading layer fe2c6446e3d9 1.26MB / 1.26MB 53.5s done
+#12 loading layer baf2266664ba 445B / 445B 52.8s done
+#12 loading layer 09f4299a964a 93B / 93B 52.3s done
+#12 loading layer 3ed371307453 51.15kB / 51.15kB 51.2s done
+#12 loading layer 6c654ac02e0a 336.37MB / 336.37MB 48.2s done
+#12 loading layer 24e86153a43f 4.06kB / 4.06kB 28.7s done
+#12 DONE 57.0s
+
+#11 exporting to docker image format
+#11 sending tarball 68.0s done
+#11 DONE 126.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image revolte-preview-app Built 
+ Network revolte-preview_default Creating 
+ Network revolte-preview_default Creating 
+ Network revolte-preview_default Created 
+ Network revolte-preview_default Created 
+ Container revolte-preview-app-1 Creating 
+ Container revolte-preview-app-1 Created 
+ Container revolte-preview-app-1 Starting 
+ Container revolte-preview-app-1 Started 
+ Container revolte-preview-app-1 Waiting 
+ Container revolte-preview-app-1 Healthy 
