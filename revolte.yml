@@ -30,12 +30,11 @@ revolte:
             enableCdn: false
             variables:
               BASE_URL: /api/v1
-              ABCD: '#{efgh}'
     qa:
       codeReview: true
       testSuite: true
       automationTestSuite: true
-      branch: main
+      branch: development
       services:
         rid_1:
           type: WEB_APP
@@ -51,7 +50,7 @@ revolte:
       codeReview: true
       testSuite: true
       automationTestSuite: true
-      branch: main
+      branch: development
       services:
         rid_1:
           type: WEB_APP
@@ -67,7 +66,7 @@ revolte:
       codeReview: true
       testSuite: true
       automationTestSuite: true
-      branch: main
+      branch: development
       services:
         rid_1:
           type: WEB_APP
