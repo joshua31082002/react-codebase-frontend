@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Converting font-size to multiples of 10 to improve readability */
+  font-size: 62.5%;
+  height: 100%;
+}
+
+body {
+  min-width: 320px;
+  height: 100%;
+  background-color: var(--color-bg-layout);
+
+  div#root {
+    height: 100%;
+  }
+}

@@ -1,0 +1,33 @@
+.product-card {
+  border-radius: 4px;
+  padding: 2rem;
+  background-color: var(--color-bg-container-100);
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: $medium-font;
+    line-height: 1.3;
+  }
+
+  &__description {
+    margin-block: 1rem 2rem;
+    font-size: 1.4rem;
+    line-height: 1.2;
+    flex: 1;
+
+    color: var(--color-neutral-700);
+  }
+
+  &__category-container {
+    &__tag {
+      padding: 0.4rem 0.8rem;
+      background-color: var(--color-primary);
+      border-radius: 20px;
+      display: inline-block;
+    }
+  }
+}

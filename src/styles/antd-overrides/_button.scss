@@ -1,0 +1,14 @@
+.ant-btn-variant-solid {
+  background: var(--color-primary);
+
+  &:not(:disabled):not(.ant-btn-disabled):hover {
+    background: var(--color-primary-hover);
+  }
+}
+
+.ant-btn-variant-outlined {
+  &:not(:disabled):not(.ant-btn-disabled):hover {
+    color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+  }
+}

@@ -1,0 +1,80 @@
+$black: #000;
+$chinese-black: #141414;
+$raisin-black: #232323;
+$outer-space: #454545;
+$white: #fff;
+$lotion: #f5f5f5;
+$chinese-white: #e0e0e0;
+$spanish-gray: #9b9b9b;
+$black-olive: #3d3d3d;
+$purple-100: #d2cfd9;
+$purple-200: #c0b7d4;
+$purple-300: #ad9ad5;
+$purple-400: #8c6fcc;
+$purple-500: #7c56cf;
+$purple-600: #6028d8;
+$purple-800: #3c1a85;
+$purple-900: #1c0b40;
+$dark-charcoal: #333333;
+
+$light-font: 300;
+$regular-font: 400;
+$medium-font: 500;
+$semibold-font: 600;
+$bold-font: 700;
+
+$home-navbar-height: 6rem;
+$home-sider-width--collapsed: 8rem;
+$home-sider-width: 20rem;
+
+:root {
+  // font weight :-
+  --font-light: #{$light-font};
+  --font-regular: #{$regular-font};
+  --font-medium: #{$medium-font};
+  --font-semibold: #{$semibold-font};
+  --font-bold: #{$bold-font};
+
+  // light theme :-
+  --color-primary: #{$purple-600}; // Brand colors
+  --color-primary-hover: #{$purple-500}; // Brand colors  
+  --color-primary-200: #{$purple-200};
+  --color-primary-300: #{$purple-300};
+
+  --color-bg-layout: #{$lotion}; // Background colors
+  --color-bg-container-100: #{$purple-100};
+  --color-bg-container-800: #{$purple-800};
+  --color-bg-elevated: #{$white};
+
+  --color-text-primary: #{$black}; // Text colors
+
+  --color-neutral-100: #{$white}; // Neutral colors
+  --color-neutral-300: #{$chinese-white};
+  --color-neutral-500: #{$spanish-gray};
+  --color-neutral-700: #{$raisin-black};
+  --color-neutral-900: #{$black};
+
+  --color-border-primary: #{$purple-600}; // Border colors
+  --color-border-container-100: #{$purple-300};
+}
+
+// dark theme :-
+[data-theme='dark'] {
+  --color-primary: #{$purple-600}; // Brand colors
+
+  --color-bg-layout: #{$chinese-black}; // Background colors
+  --color-bg-container-100: #{$raisin-black};
+  --color-bg-container-800: #{$outer-space};
+  --color-bg-elevated: #{$dark-charcoal};
+
+  --color-text-primary: #{$white}; // Text colors
+
+  --color-neutral-100: #{$black}; // Neutral colors
+  --color-neutral-300: #{$raisin-black};
+  --color-neutral-500: #{$spanish-gray};
+  --color-neutral-700: #{$chinese-white};
+  --color-neutral-900: #{$white};
+
+  --color-border-primary: #{$purple-600}; // Border colors
+  --color-border-container-100: #{$outer-space};
+}

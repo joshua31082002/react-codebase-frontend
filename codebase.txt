@@ -1,0 +1,107 @@
+.
+├── README.md
+├── codebase.txt
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── public
+│   └── logo
+│       └── vite.svg
+├── src
+│   ├── app
+│   │   ├── App
+│   │   │   └── index.tsx
+│   │   ├── AppRouter
+│   │   │   ├── index.tsx
+│   │   │   ├── loaders
+│   │   │   │   ├── redirect-if-authenticated.loader.ts
+│   │   │   │   └── require-auth.loader.ts
+│   │   │   └── router.tsx
+│   │   ├── layouts
+│   │   │   └── RootLayout
+│   │   │       ├── RootLayout.module.scss
+│   │   │       └── index.tsx
+│   │   └── providers
+│   │       ├── AntdConfigProvider
+│   │       │   └── index.tsx
+│   │       └── QueryProvider
+│   │           └── index.tsx
+│   ├── assets
+│   │   └── react.svg
+│   ├── config
+│   │   ├── api-client.ts
+│   │   └── env.ts
+│   ├── main.tsx
+│   ├── modules
+│   │   └── auth
+│   │       ├── api
+│   │       │   └── index.ts
+│   │       ├── components
+│   │       │   └── LoginForm
+│   │       ├── hooks
+│   │       │   ├── useCurrentUser.ts
+│   │       │   ├── useLogin.ts
+│   │       │   └── useLogout.ts
+│   │       └── types
+│   │           ├── login-form-values.ts
+│   │           ├── login-request.types.ts
+│   │           └── user.types.ts
+│   ├── pages
+│   │   ├── HomePage
+│   │   │   ├── HomePage.module.scss
+│   │   │   └── index.tsx
+│   │   └── LoginPage
+│   │       ├── LoginPage.module.scss
+│   │       └── index.tsx
+│   ├── shared
+│   │   ├── components
+│   │   │   ├── MaterialIcon
+│   │   │   │   └── index.tsx
+│   │   │   ├── form
+│   │   │   │   ├── Form
+│   │   │   │   ├── FormFieldWrapper
+│   │   │   │   └── Input
+│   │   │   └── ui
+│   │   │       ├── Button
+│   │   │       ├── ConditionalRender
+│   │   │       └── Spin
+│   │   ├── constants
+│   │   │   ├── api-routes.ts
+│   │   │   ├── app-env.ts
+│   │   │   ├── app-routes.ts
+│   │   │   ├── local-storage-keys.ts
+│   │   │   ├── network-status.ts
+│   │   │   └── query-keys.ts
+│   │   ├── hooks
+│   │   │   └── useNetworkStatus.ts
+│   │   ├── types
+│   │   │   ├── app-env.types.ts
+│   │   │   ├── formfield-status.types.ts
+│   │   │   └── network-status.types.ts
+│   │   └── utils
+│   │       └── local-storage-utils.ts
+│   └── styles
+│       ├── abstracts
+│       │   ├── _animations.scss
+│       │   ├── _functions.scss
+│       │   ├── _index.scss
+│       │   ├── _mixins.scss
+│       │   └── _variables.scss
+│       ├── antd-overrides
+│       │   ├── _app.scss
+│       │   └── _index.scss
+│       ├── base
+│       │   ├── _input.scss
+│       │   ├── _reset.scss
+│       │   └── _typography.scss
+│       ├── helpers
+│       │   └── _helpers.scss
+│       └── main.scss
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite-env.d.ts
+└── vite.config.ts
+
+45 directories, 60 files

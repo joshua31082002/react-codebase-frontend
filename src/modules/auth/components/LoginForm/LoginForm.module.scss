@@ -1,0 +1,14 @@
+.form-fields-wrapper {
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+
+  &__actions {
+    display: flex;
+    gap: 2rem;
+  }
+}
+
+.login-btn {
+  margin-top: 6rem;
+}

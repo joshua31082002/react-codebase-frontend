@@ -1,0 +1,21 @@
+.home-sider {
+  border-right: 1px solid var(--color-border-container-100);
+
+  height: calc(100vh - $home-navbar-height);
+  position: fixed;
+  top: $home-navbar-height;
+
+  :global(.ant-layout-sider-trigger) {
+    border-right: 1px solid var(--color-bg-container-800);
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+
+  @include antd-sider-width-override($home-sider-width);
+
+  &--collapsed {
+    @include antd-sider-width-override($home-sider-width--collapsed);
+  }
+}

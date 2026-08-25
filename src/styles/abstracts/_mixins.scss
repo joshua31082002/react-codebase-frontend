@@ -1,0 +1,6 @@
+@mixin antd-sider-width-override($width) {
+  flex: 0 0 $width !important;
+  max-width: $width !important;
+  min-width: $width !important;
+  width: $width !important;
+}
