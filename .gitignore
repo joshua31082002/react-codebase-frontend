@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Crash artifacts — a single core dump can exceed GitHub's 100MB file limit
+core
+core.*
+*.heapsnapshot
+report.*.json
+isolate-*.log
