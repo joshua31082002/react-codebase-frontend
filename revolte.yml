@@ -1,0 +1,48 @@
+revolte:
+  version: '1'
+  project: FE-test-project
+  appName: fe-test-app
+  env:
+    preview:
+      services:
+        rid_1:
+          name: fe-test-app
+          type: WEB_APP
+          entryPoint: src/main.tsx
+          properties:
+            indexPage: index.html
+            errorPage: index.html
+            variables:
+              APP_ENV: development
+              APP_VERSION: v1.0.0
+              APP_API_SERVICE_BASEURL: https://dummyjson.com
+    qa:
+      branch: qa
+      services:
+        rid_1:
+          name: fe-test-app
+          type: WEB_APP
+          entryPoint: src/main.tsx
+          properties:
+            indexPage: index.html
+            errorPage: index.html
+    staging:
+      branch: staging
+      services:
+        rid_1:
+          name: fe-test-app
+          type: WEB_APP
+          entryPoint: src/main.tsx
+          properties:
+            indexPage: index.html
+            errorPage: index.html
+    production:
+      branch: main
+      services:
+        rid_1:
+          name: fe-test-app
+          type: WEB_APP
+          entryPoint: src/main.tsx
+          properties:
+            indexPage: index.html
+            errorPage: index.html
