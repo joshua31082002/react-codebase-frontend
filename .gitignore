@@ -23,7 +23,12 @@ dist-ssr
 *.sln
 *.sw?
 
-package-lock.json
+# Crash artifacts
+core
+core.*
+*.heapsnapshot
+report.*.json
+isolate-*.log
 
 # .env files:-
 # .env*
