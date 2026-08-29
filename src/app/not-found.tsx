@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound() { return <main className="grid min-h-screen place-items-center px-6 text-center"><div><p className="text-sm font-bold uppercase tracking-widest text-[var(--tomato)]">Oops</p><h1 className="mt-3 text-6xl">Not on our menu.</h1><p className="mx-auto mt-4 max-w-sm text-[var(--muted)]">That page wandered off. Let’s get you back to the good stuff.</p><Link href="/" className="mt-8 inline-flex min-h-12 items-center rounded-full bg-[var(--tomato)] px-6 font-bold text-white">Back to shop</Link></div></main>; }
