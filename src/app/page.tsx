@@ -1,69 +1,206 @@
-import Image from "next/image";
+import { deleteAccount } from "@/app/actions";
+import { AccountForm } from "@/components/account-form";
+import { getCreditDashboard } from "@/lib/credit-service";
 
-export default function Home() {
+const money = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+  maximumFractionDigits: 0,
+});
+
+export default async function Home() {
+  const { accounts, assessment } = await getCreditDashboard();
+  const [priorityAction, ...supportingActions] = assessment.actions;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <main className="shell">
+      <header className="topbar">
+        <a className="brand" href="#overview" aria-label="Credit Health home">
+          Credit<span>Health</span>
+        </a>
+        <nav aria-label="Page navigation">
+          <a href="#health-heading">Health factors</a>
+          <a href="#accounts-heading">Accounts</a>
+          <a className="header-cta" href="#add-account">
+            Add account
+          </a>
+        </nav>
+      </header>
+
+      <section className="hero" id="overview" aria-labelledby="page-title">
+        <div className="hero-copy">
+          <p className="eyebrow">Private credit health plan</p>
+          <h1 id="page-title">Know what to work on next.</h1>
+          <p className="lede">
+            A focused view of the habits shaping your credit health, based only
+            on the accounts you record here.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="summary-strip" aria-label="Plan summary">
+        <article className="summary-item summary-score">
+          <span>Health rating</span>
+          <strong>{assessment.score}</strong>
+          <b>{assessment.band}</b>
+        </article>
+        <article className="summary-item">
+          <span>Card utilization</span>
+          <strong>
+            {assessment.utilizationPercent === null
+              ? "—"
+              : `${assessment.utilizationPercent}%`}
+          </strong>
+          <b>
+            {assessment.utilizationPercent === null
+              ? "Needs a limit"
+              : "Current snapshot"}
+          </b>
+        </article>
+        <article className="summary-item">
+          <span>Accounts tracked</span>
+          <strong>{accounts.length}</strong>
+          <b>{accounts.length === 1 ? "Account" : "Accounts"} in this plan</b>
+        </article>
+      </section>
+
+      <section className="priority-card" aria-labelledby="actions-heading">
+        <div className="priority-marker" aria-hidden="true">
+          01
         </div>
-      </main>
-    </div>
+        <div>
+          <p className="eyebrow">Your highest-impact move</p>
+          <h2 id="actions-heading">{priorityAction}</h2>
+          {supportingActions.length > 0 && (
+            <details className="supporting-actions">
+              <summary>
+                See {supportingActions.length} more recommendation
+                {supportingActions.length === 1 ? "" : "s"}
+              </summary>
+              <ol>
+                {supportingActions.map((action) => (
+                  <li key={action}>{action}</li>
+                ))}
+              </ol>
+            </details>
+          )}
+        </div>
+      </section>
+
+      <section className="notice" aria-label="Important information">
+        <strong>Educational guidance only.</strong> This is not a credit bureau
+        score or lending decision.
+      </section>
+
+      <section className="dashboard-grid" aria-label="Credit health dashboard">
+        <section className="overview-card" aria-labelledby="health-heading">
+          <div className="section-heading">
+            <p className="eyebrow">Why your rating looks this way</p>
+            <h2 id="health-heading">Health factors</h2>
+          </div>
+          <div className="factors">
+            {assessment.factors.map((factor) => (
+              <article className="factor" key={factor.label}>
+                <div className="factor-title">
+                  <h3>{factor.label}</h3>
+                  <strong>
+                    {factor.score}
+                    <span>/{factor.maximum}</span>
+                  </strong>
+                </div>
+                <div
+                  className="progress"
+                  aria-label={`${factor.label}: ${factor.score} out of ${factor.maximum}`}
+                >
+                  <span
+                    style={{
+                      width: `${(factor.score / factor.maximum) * 100}%`,
+                    }}
+                  />
+                </div>
+                <p>{factor.summary}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <aside className="side-column">
+          <section
+            className="metric-card"
+            aria-labelledby="utilization-heading"
+          >
+            <p className="eyebrow">Card utilization</p>
+            <h2 id="utilization-heading">
+              {assessment.utilizationPercent === null
+                ? "—"
+                : `${assessment.utilizationPercent}%`}
+            </h2>
+            <p>
+              {assessment.utilizationPercent === null
+                ? "Add a credit limit to calculate this factor."
+                : "Under 30% is a useful target; lower is generally healthier."}
+            </p>
+          </section>
+          {!assessment.isComplete && (
+            <section
+              className="incomplete-card"
+              aria-label="Incomplete profile"
+            >
+              <strong>Your snapshot needs one more detail</strong>
+              <p>Add the missing credit limit to improve the assessment.</p>
+            </section>
+          )}
+        </aside>
+      </section>
+
+      <section className="accounts-section" aria-labelledby="accounts-heading">
+        <div className="section-heading accounts-header">
+          <div>
+            <p className="eyebrow">Information in your plan</p>
+            <h2 id="accounts-heading">Recorded accounts</h2>
+          </div>
+          <span>{accounts.length} total</span>
+        </div>
+        <div className="account-list">
+          {accounts.length === 0 ? (
+            <p className="empty-state">
+              Add your first account to receive a personalized health view.
+            </p>
+          ) : (
+            accounts.map((account) => (
+              <article className="account-row" key={account.id}>
+                <div>
+                  <p className="account-name">{account.name}</p>
+                  <p>
+                    {account.type === "revolving"
+                      ? "Credit card"
+                      : "Installment loan"}{" "}
+                    · Opened {account.openedOn}
+                  </p>
+                </div>
+                <div className="account-amounts">
+                  <strong>{money.format(account.balanceCents / 100)}</strong>
+                  {account.type === "revolving" &&
+                    account.limitCents !== null && (
+                      <span>
+                        of {money.format(account.limitCents / 100)} limit
+                      </span>
+                    )}
+                </div>
+                <form action={deleteAccount.bind(null, account.id)}>
+                  <button className="text-button" type="submit">
+                    Remove
+                  </button>
+                </form>
+              </article>
+            ))
+          )}
+        </div>
+      </section>
+
+      <div id="add-account">
+        <AccountForm />
+      </div>
+    </main>
   );
 }
