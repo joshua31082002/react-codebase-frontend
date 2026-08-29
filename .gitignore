@@ -23,7 +23,15 @@ dist-ssr
 *.sln
 *.sw?
 
-package-lock.json
+# Environment and generated output
+.env
+.env.*
+!.env.example
+coverage
 
-# .env files:-
-# .env*
+# Crash artifacts
+core
+core.*
+*.heapsnapshot
+report.*.json
+isolate-*.log

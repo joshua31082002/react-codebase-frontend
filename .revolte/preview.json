@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "start": "npm run start:preview",
+  "port": 4173,
+  "install": [
+    {
+      "name": "node dependencies and production build",
+      "check": "test -d node_modules && test -d client/dist && test -d server/dist",
+      "run": "npm install && npm run build",
+      "inputs": [
+        "package.json",
+        "package-lock.json",
+        "client",
+        "server",
+        "vite.config.ts"
+      ]
+    }
+  ],
+  "services": [
+    {
+      "name": "postgresql",
+      "check": "command -v psql",
+      "install": "sudo apt-get update && sudo apt-get install -y postgresql",
+      "start": "sudo service postgresql start",
+      "ready": "pg_isready"
+    }
+  ]
+}
