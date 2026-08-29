@@ -6,13 +6,17 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    react(),
-    tsconfigPaths(),
-    svgr(),
-  ],
+  plugins: [react(), tsconfigPaths(), svgr()],
   // Change the prefix from 'VITE_' to 'APP_'
   envPrefix: 'APP_',
+  server: {
+    host: true,
+    allowedHosts: ['.staging.revolte.io'],
+  },
+  preview: {
+    host: true,
+    allowedHosts: ['.staging.revolte.io'],
+  },
   css: {
     preprocessorOptions: {
       scss: {
