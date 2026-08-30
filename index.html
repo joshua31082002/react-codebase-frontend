@@ -9,9 +9,70 @@
       rel="stylesheet"
     />
     <title>react-boilerplate</title>
+    <style>
+      .draw-animation {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        color: var(--color-primary, #6028d8);
+        opacity: 0.16;
+      }
+
+      .draw-animation__path {
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2;
+        stroke-dasharray: 420;
+        stroke-dashoffset: 420;
+        animation:
+          draw-line 2.8s cubic-bezier(0.65, 0, 0.35, 1) forwards,
+          float-line 6s ease-in-out 2.8s infinite;
+      }
+
+      .draw-animation__path:nth-child(2) {
+        animation-delay: 0.35s, 3.15s;
+      }
+
+      .draw-animation__path:nth-child(3) {
+        animation-delay: 0.7s, 3.5s;
+      }
+
+      @keyframes draw-line {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes float-line {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+        50% {
+          transform: translate3d(0, -8px, 0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .draw-animation__path {
+          animation: none;
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
+    <svg class="draw-animation" viewBox="0 0 800 600" aria-hidden="true">
+      <path class="draw-animation__path" d="M96 470 C170 350 210 430 280 310 S400 170 470 260" />
+      <path class="draw-animation__path" d="M470 260 C535 335 590 215 680 250 S730 380 690 470" />
+      <path class="draw-animation__path" d="M180 160 C250 95 335 125 380 185 S495 110 560 145" />
+    </svg>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
