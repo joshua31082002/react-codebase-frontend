@@ -13,6 +13,9 @@ export default defineConfig({
   ],
   // Change the prefix from 'VITE_' to 'APP_'
   envPrefix: 'APP_',
+  server: {
+    allowedHosts: ['.staging.revolte.io'],
+  },
   css: {
     preprocessorOptions: {
       scss: {
