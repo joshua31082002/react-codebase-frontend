@@ -1,68 +1,73 @@
-import Image from "next/image";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getSessionUser } from "@/lib/session";
+import { buttonClass, ghostButtonClass } from "@/components/ui";
 
-export default function Home() {
+export default async function HomePage() {
+  const user = await getSessionUser();
+  if (user) redirect("/app");
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,#ead7c8,transparent_40%),radial-gradient(circle_at_bottom_right,#dce6d4,transparent_35%)]">
+      <header className="mx-auto flex max-w-6xl items-center justify-between px-4 py-6">
+        <p className="text-xs uppercase tracking-[0.28em] text-[var(--copper)]">Atelier</p>
+        <div className="flex gap-3">
+          <Link href="/login" className={ghostButtonClass}>
+            Sign in
+          </Link>
+          <Link href="/register" className={buttonClass}>
+            Open a workplace
+          </Link>
+        </div>
+      </header>
+      <main className="mx-auto grid max-w-6xl gap-12 px-4 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+        <div>
+          <p className="text-sm uppercase tracking-[0.18em] text-[var(--olive-soft)]">
+            Workplace booking
           </p>
+          <h1 className="mt-4 max-w-xl font-[family-name:var(--font-display)] text-5xl leading-[1.05] md:text-6xl">
+            Hold the room before the day gets away from you.
+          </h1>
+          <p className="mt-6 max-w-lg text-lg text-[var(--ink-soft)]">
+            Employees reserve rooms, desks, parking, and lockers against live availability.
+            Facilities keep policy, approvals, and kiosk check-in in one quiet system.
+          </p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href="/login" className={buttonClass}>
+              Sign in to Northline
+            </Link>
+            <Link href="/kiosk" className={ghostButtonClass}>
+              Pair a kiosk
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+        <aside className="rounded-[24px] border border-[var(--line)] bg-[var(--paper-raised)] p-6 shadow-[var(--shadow)]">
+          <p className="text-sm text-[var(--ink-soft)]">Demo workplace</p>
+          <p className="mt-2 font-[family-name:var(--font-display)] text-3xl">
+            Farringdon House
+          </p>
+          <ul className="mt-6 grid gap-3 text-sm">
+            <li className="flex justify-between border-b border-[var(--line)] pb-3">
+              <span>Boardroom Alder</span>
+              <span>12 seats · check-in</span>
+            </li>
+            <li className="flex justify-between border-b border-[var(--line)] pb-3">
+              <span>Huddle Birch</span>
+              <span>instant hold</span>
+            </li>
+            <li className="flex justify-between border-b border-[var(--line)] pb-3">
+              <span>Hot desk 14</span>
+              <span>monitor + dock</span>
+            </li>
+            <li className="flex justify-between">
+              <span>Bay P-07</span>
+              <span>EV</span>
+            </li>
+          </ul>
+          <p className="mt-6 text-xs text-[var(--ink-soft)]">
+            Priya Shah · priya.shah@northline.example · atelier-demo-1
+          </p>
+        </aside>
       </main>
     </div>
   );

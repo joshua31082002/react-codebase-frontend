@@ -1,7 +1,7 @@
-import { login, registerOrg } from "@/services/auth.service";
+import { registerOrg } from "@/services/auth.service";
 import { handleError, readJson, clientIp } from "@/lib/http";
 import { jsonOk } from "@/lib/utils";
-import { loginSchema, registerSchema } from "@/lib/validators";
+import { registerSchema } from "@/lib/validators";
 
 export async function POST(request: Request) {
   try {
