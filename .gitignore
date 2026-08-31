@@ -27,3 +27,26 @@ package-lock.json
 
 # .env files:-
 # .env*
+
+# Next.js
+.next/
+out/
+next-env.d.ts
+
+# Env
+.env
+.env.local
+.env*.local
+
+# Drizzle / local db
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# Crash artifacts — a single core dump can exceed GitHub's 100MB file limit
+core
+core.*
+*.heapsnapshot
+report.*.json
+isolate-*.log
